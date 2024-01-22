@@ -1,4 +1,3 @@
-FROM nginx:1.4.6
-RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY content /usr/share/nginx/html
-COPY conf /etc/nginx
+FROM alpine:3.14.9
+RUN apk add --update redis
+CMD ["redis-server"]
