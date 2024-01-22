@@ -36,6 +36,6 @@ jobs:
         # Path to the build context
         path: 'src'
         # Path to the Dockerfile (Default is '{path}/Dockerfile')
-        dockerfile: '/Dockerfile'
+        dockerfile: 'buildscanpush/Dockerfile'
         # Whether to push the image
         push: false
