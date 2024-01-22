@@ -39,3 +39,12 @@ jobs:
         dockerfile: 'Dockerfile'
         # Whether to push the image
         push: false
+    - name: Trivy Scan - Unknown, Low and Medium Severity
+      uses: aquasecurity/trivy-action@0.16.1
+      with:
+        # image reference
+        image-ref: ${{ env.ImageName }}:github-${{ env.BuildNumber }}  
+        # exit code when vulnerabilities were found
+        exit-code: 0
+        # severities of vulnerabilities to be displayed
+        severity: UNKNOWN,LOW,MEDIUM  
