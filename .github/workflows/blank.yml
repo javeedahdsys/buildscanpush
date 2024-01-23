@@ -27,14 +27,6 @@ jobs:
         repository: ${{ env.ImageName }}
         tags: 'github-${{ env.BuildNumber }}'
         dockerfile: 'Dockerfile'
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: 'trivy-results.sarif'
-
-
-
-  
         push: false
     - name: Trivy Scan - Unknown, Low and Medium Severity
       uses: aquasecurity/trivy-action@0.16.1
@@ -42,4 +34,8 @@ jobs:
         
         image-ref: ${{ env.ImageName }}:github-${{ env.BuildNumber }}  
         exit-code: 0
-        severity: UNKNOWN,LOW,MEDIUM  
+        severity: UNKNOWN,LOW,MEDIUM 
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
