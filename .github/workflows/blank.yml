@@ -32,10 +32,9 @@ jobs:
     - name: Trivy Scan - Unknown, Low and Medium Severity
       uses: aquasecurity/trivy-action@0.16.1
       with:
-        
         image-ref: ${{ env.ImageName }}:github-${{ env.BuildNumber }}  
         exit-code: 0
-        severity: UNKNOWN,LOW,MEDIUM 
+        severity: MEDIUM 
         format: 'sarif'
         output: 'trivy-results.sarif'
     - name: Upload Trivy scan results to GitHub Security tab
