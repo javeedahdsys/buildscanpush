@@ -3,9 +3,9 @@ name: Build-Scan-Push
 
 on:
   push:
-    branches: [ main ]
+    branches: [ uat ]
   pull_request:
-    branches: [ main ]
+    branches: [ uat ]
 
 env:
   BuildNumber: ${{ github.run_id }}-${{ github.run_number }}
